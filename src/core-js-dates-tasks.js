@@ -101,9 +101,10 @@ const getCountDaysInMonth = (month, year) => new Date(year, month, 0).getDate();
  * '2024-02-01T00:00:00.000Z', '2024-02-02T00:00:00.000Z'  => 2
  * '2024-02-01T00:00:00.000Z', '2024-02-12T00:00:00.000Z'  => 12
  */
-function getCountDaysOnPeriod(/* dateStart, dateEnd */) {
-  throw new Error('Not implemented');
-}
+const getCountDaysOnPeriod = (dateStart, dateEnd) =>
+  Math.floor(
+    (new Date(dateEnd) - new Date(dateStart)) / (1000 * 60 * 60 * 24)
+  ) + 1;
 
 /**
  * Returns true if a given date is within a specified range, including both the start and end dates.
